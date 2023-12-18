@@ -3,6 +3,7 @@ import React from 'react';
 import PhotoListItem from './components/PhotoListItem';
 // import PhotoList from 'components/PhotoList';
 import './App.scss';
+import PhotoFavButton from 'components/PhotoFavButton';
 
 const sampleDataForPhotoListItem = {
   id: "1",
@@ -19,9 +20,7 @@ const sampleDataForPhotoListItem = {
 const App = () => {
   return (
     <div className="App">
-      <PhotoListItem photoData={sampleDataForPhotoListItem} />
-      <PhotoListItem photoData={sampleDataForPhotoListItem} />
-      <PhotoListItem photoData={sampleDataForPhotoListItem} />
+      <PhotoFavButton />
     </div>
   );
 };
