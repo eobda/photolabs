@@ -6,11 +6,14 @@ import PhotoList from 'components/PhotoList';
 
 const HomeRoute = () => {
   const [liked, setLiked] = useState(false);
+  const likeItem = () => {
+    setLiked(liked ? false : true);
+  }
 
   return (
     <div className="home-route">
-      <TopNavigation liked={liked} setLiked={setLiked} />
-      <PhotoList liked={liked} setLiked={setLiked} />
+      <TopNavigation liked={liked} likeItem={likeItem} />
+      <PhotoList liked={liked} likeItem={likeItem} />
     </div>
   );
 };
