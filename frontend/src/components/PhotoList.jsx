@@ -4,7 +4,10 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 import photos from "mocks/photos";
 
-const PhotoList = () => {
+const PhotoList = (props) => {
+
+  const {liked, likeItem} = props;
+  
   const renderPhotos = photos.map((photo) => {
     const photoData = {
       imageSource: photo.urls.regular,
@@ -15,7 +18,7 @@ const PhotoList = () => {
 
     return (
       <li key={photo.id}>
-        <PhotoListItem photoData={photoData} />
+        <PhotoListItem photoData={photoData} liked={liked} likeItem={likeItem}/>
       </li>
     );
   })
