@@ -18,7 +18,12 @@ const PhotoList = (props) => {
 
     return (
       <li key={photo.id}>
-        <PhotoListItem photoData={photoData} liked={liked} likeItem={likeItem} toggleModal={toggleModal}/>
+        <PhotoListItem
+          photoData={photoData}
+          liked={liked}
+          likeItem={likeItem}
+          toggleModal={toggleModal}
+        />
       </li>
     );
   })
