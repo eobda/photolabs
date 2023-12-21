@@ -8,18 +8,10 @@ const PhotoList = (props) => {
   const { liked, likeItem, setModalState } = props;
   
   const renderPhotos = photos.map((photo) => {
-    const photoData = {
-      id: photo.id,
-      imageSource: photo.urls.regular,
-      profile: photo.user.profile,
-      username: photo.user.username,
-      location: photo.location
-    };
-
     return (
       <li key={photo.id}>
         <PhotoListItem
-          photoData={photoData}
+          photoData={photo}
           liked={liked}
           likeItem={likeItem}
           setModalState={setModalState}
