@@ -9,7 +9,8 @@ function PhotoFavButton(props) {
   const {liked, likeItem} = props;
   const handleClick = () => {
     setSelected(selected ? false : true);
-    likeItem();
+    likeItem(props.photo);
+    console.log(liked);
   };
   
   return (

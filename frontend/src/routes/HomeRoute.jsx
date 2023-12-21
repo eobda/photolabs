@@ -5,10 +5,10 @@ import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = () => {
-  const [liked, setLiked] = useState(false);
-  const likeItem = () => {
-    console.log('liked:', liked);
-    setLiked(liked ? false : true);
+  const [liked, setLiked] = useState([]);
+  const likeItem = (photo) => {
+    const newLikes = [...liked, photo];
+    setLiked(newLikes);
   }
 
   return (

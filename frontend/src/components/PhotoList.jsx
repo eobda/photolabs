@@ -10,6 +10,7 @@ const PhotoList = (props) => {
   
   const renderPhotos = photos.map((photo) => {
     const photoData = {
+      id: photo.id,
       imageSource: photo.urls.regular,
       profile: photo.user.profile,
       username: photo.user.username,
