@@ -6,7 +6,7 @@ import photos from "mocks/photos";
 
 const PhotoList = (props) => {
 
-  const {liked, likeItem} = props;
+  const {liked, likeItem, toggleModal} = props;
   
   const renderPhotos = photos.map((photo) => {
     const photoData = {
@@ -19,7 +19,7 @@ const PhotoList = (props) => {
 
     return (
       <li key={photo.id}>
-        <PhotoListItem photoData={photoData} liked={liked} likeItem={likeItem}/>
+        <PhotoListItem photoData={photoData} liked={liked} likeItem={likeItem} toggleModal={toggleModal}/>
       </li>
     );
   })

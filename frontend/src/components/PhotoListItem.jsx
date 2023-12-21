@@ -4,12 +4,12 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
-  const { likeItem, photoData } = props;
+  const { likeItem, photoData, toggleModal } = props;
   
   return (
     <div className="photo-list__item">
       <PhotoFavButton likeItem={likeItem} photo={photoData} />
-      <img className="photo-list__image" src ={photoData.imageSource} />
+      <img className="photo-list__image" src={photoData.imageSource} onClick={toggleModal} />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={photoData.profile} />
         <p className="photo-list__user-info">{photoData.username}<br />
