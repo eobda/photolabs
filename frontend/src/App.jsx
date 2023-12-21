@@ -8,16 +8,10 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 const App = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
-  const toggleModal = () => {
-    setModalOpen(!modalOpen);
-  }
   const [activePhoto, setActivePhoto] = useState(null);
-  const setPhotoAsActive = (photo) => {
-    setActivePhoto(photo);
-  }
   const setModalState = (photo) => {
-    setPhotoAsActive(photo);
-    toggleModal();
+    setActivePhoto(photo);
+    setModalOpen(!modalOpen);
     console.log(photo);
   };
 
