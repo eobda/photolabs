@@ -15,11 +15,16 @@ const App = () => {
   const setPhotoAsActive = (photo) => {
     setActivePhoto(photo);
   }
+  const setModalState = (photo) => {
+    setPhotoAsActive(photo);
+    toggleModal();
+    console.log(photo);
+  };
 
   return (
     <div className="App">
-      <HomeRoute toggleModal={toggleModal} setPhotoAsActive={setPhotoAsActive} />
-      {modalOpen && <PhotoDetailsModal toggleModal={toggleModal} activePhoto={activePhoto} />}
+      <HomeRoute setModalState={setModalState} />
+      {modalOpen && <PhotoDetailsModal setModalState={setModalState} activePhoto={activePhoto} />}
     </div>
   );
 };

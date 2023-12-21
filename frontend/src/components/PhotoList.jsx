@@ -5,7 +5,7 @@ import PhotoListItem from "./PhotoListItem";
 import photos from "mocks/photos";
 
 const PhotoList = (props) => {
-  const { liked, likeItem, toggleModal, setPhotoAsActive } = props;
+  const { liked, likeItem, setModalState } = props;
   
   const renderPhotos = photos.map((photo) => {
     const photoData = {
@@ -22,8 +22,7 @@ const PhotoList = (props) => {
           photoData={photoData}
           liked={liked}
           likeItem={likeItem}
-          toggleModal={toggleModal}
-          setPhotoAsActive={setPhotoAsActive}
+          setModalState={setModalState}
         />
       </li>
     );
