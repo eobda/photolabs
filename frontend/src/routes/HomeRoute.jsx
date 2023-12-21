@@ -5,7 +5,7 @@ import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
-  const { toggleModal } = props;
+  const { toggleModal, setPhotoAsActive } = props;
   
   const [liked, setLiked] = useState([]);
   const likeItem = (photo) => {
@@ -21,6 +21,7 @@ const HomeRoute = (props) => {
         liked={liked}
         likeItem={likeItem}
         toggleModal={toggleModal}
+        setPhotoAsActive={setPhotoAsActive}
       />
     </div>
   );
