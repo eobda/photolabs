@@ -25,8 +25,17 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute setModalState={setModalState} liked={liked} likeItem={likeItem} />
-      {modalOpen && <PhotoDetailsModal setModalState={setModalState} activePhoto={activePhoto} />}
+      <HomeRoute
+        setModalState={setModalState}
+        liked={liked}
+        likeItem={likeItem}
+      />
+      {modalOpen && <PhotoDetailsModal
+        setModalState={setModalState}
+        activePhoto={activePhoto}
+        liked={liked}
+        likeItem={likeItem}
+      />}
     </div>
   );
 };

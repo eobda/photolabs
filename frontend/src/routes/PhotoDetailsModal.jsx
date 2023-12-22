@@ -6,7 +6,7 @@ import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
-  const { activePhoto, setModalState } = props;
+  const { activePhoto, setModalState, likeItem } = props;
   return (
     <div className="photo-details-modal">
 
@@ -17,7 +17,7 @@ const PhotoDetailsModal = (props) => {
       {/* Unsure of how to use classes here to centre photo */}
       <div className='photo-details-modal__top-bar'>
         <div className='photo-details-modal__header'>
-          <PhotoFavButton likeItem={null} photo={activePhoto} />
+          <PhotoFavButton likeItem={likeItem} photo={activePhoto} />
           <img className='photo-details-modal__image' src={activePhoto.urls.full} />
 
           <div className='photo-details-modal__photographer-details'>
