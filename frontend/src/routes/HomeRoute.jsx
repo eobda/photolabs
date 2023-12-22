@@ -5,14 +5,7 @@ import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
-  const { setModalState } = props;
-  
-  const [liked, setLiked] = useState([]);
-  const likeItem = (photo) => {
-    const newLikes = [...liked, photo];
-    setLiked(newLikes);
-    console.log(liked);
-  }
+  const { setModalState, liked, likeItem } = props;
 
   return (
     <div className="home-route">

@@ -4,9 +4,9 @@ import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
-// Note: Rendering a single component to build components in isolation
 const App = () => {
 
+  // Modal states
   const [modalOpen, setModalOpen] = useState(false);
   const [activePhoto, setActivePhoto] = useState(null);
   const setModalState = (photo) => {
@@ -15,9 +15,17 @@ const App = () => {
     console.log(photo);
   };
 
+  // Favourite Photo states
+  const [liked, setLiked] = useState([]);
+  const likeItem = (photo) => {
+    const newLikes = [...liked, photo];
+    setLiked(newLikes);
+    console.log(liked);
+  }
+
   return (
     <div className="App">
-      <HomeRoute setModalState={setModalState} />
+      <HomeRoute setModalState={setModalState} liked={liked} likeItem={likeItem} />
       {modalOpen && <PhotoDetailsModal setModalState={setModalState} activePhoto={activePhoto} />}
     </div>
   );
