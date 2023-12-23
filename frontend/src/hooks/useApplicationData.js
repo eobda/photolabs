@@ -12,7 +12,7 @@ export const ACTIONS = {
 function reducer(state, action) {
   switch (action.type) {
     case 'FAV_PHOTO_ADDED': {
-      return [...state.favPhotos, action.payload]
+      return {...state, favPhotos: [...state.favPhotos, action.payload]};
     }
     case 'FAV_PHOTO_REMOVED': {
       return state;
