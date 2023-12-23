@@ -5,16 +5,15 @@ import PhotoListItem from "./PhotoListItem";
 import photos from "mocks/photos";
 
 const PhotoList = (props) => {
-  const { liked, likeItem, setModalState } = props;
+  const { updateToFavPhotoIds, onPhotoSelect } = props;
   
   const renderPhotos = photos.map((photo) => {
     return (
       <li key={photo.id}>
         <PhotoListItem
           photoData={photo}
-          liked={liked}
-          likeItem={likeItem}
-          setModalState={setModalState}
+          updateToFavPhotoIds={updateToFavPhotoIds}
+          onPhotoSelect={onPhotoSelect}
         />
       </li>
     );

@@ -4,12 +4,12 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
-  const { likeItem, photoData, setModalState } = props;
+  const { photoData, updateToFavPhotoIds, onPhotoSelect } = props;
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton likeItem={likeItem} photo={photoData} />
-      <img className="photo-list__image" src={photoData.urls.regular} onClick={()=> setModalState(photoData)} />
+      <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photo={photoData} />
+      <img className="photo-list__image" src={photoData.urls.regular} onClick={()=> onPhotoSelect(photoData)} />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={photoData.user.profile} />
         <p className="photo-list__user-info">{photoData.user.username}<br />

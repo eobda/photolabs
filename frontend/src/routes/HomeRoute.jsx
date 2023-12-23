@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
-  const { setModalState, liked, likeItem } = props;
+  const { state, onPhotoSelect, updateToFavPhotoIds } = props;
 
   return (
     <div className="home-route">
-      <TopNavigation liked={liked} />
+      <TopNavigation state={state} />
       <PhotoList
-        liked={liked}
-        likeItem={likeItem}
-        setModalState={setModalState}
+        updateToFavPhotoIds={updateToFavPhotoIds}
+        onPhotoSelect={onPhotoSelect}
       />
     </div>
   );
