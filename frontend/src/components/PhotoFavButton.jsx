@@ -8,8 +8,8 @@ function PhotoFavButton(props) {
   const [selected, setSelected] = useState(false);
   const {updateToFavPhotoIds} = props;
   const handleClick = () => {
+    updateToFavPhotoIds(props.photo, selected);
     setSelected(selected ? false : true);
-    updateToFavPhotoIds(props.photo);
   };
   
   return (

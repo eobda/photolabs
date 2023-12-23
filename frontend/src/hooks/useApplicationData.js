@@ -15,7 +15,9 @@ function reducer(state, action) {
       return {...state, favPhotos: [...state.favPhotos, action.payload]};
     }
     case 'FAV_PHOTO_REMOVED': {
-      return state;
+      const index = state.favPhotos.indexOf(action.payload);
+      const removedPhotos = state.favPhotos.splice(index, 1);
+      return {...state, favPhotos: removedPhotos};
     }
     case 'SELECT_PHOTO': {
       const photoSearch = photos.find(photo => photo.id === action.payload);
@@ -39,8 +41,14 @@ export function useApplicationData() {
     modalOpen: false
   });
 
-  const updateToFavPhotoIds = (photo) => {
-    dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: photo.id });
+  const updateToFavPhotoIds = (photo, isFav) => {
+    if (isFav) {
+      console.log('REMOVING PHOTO!');
+      dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photo.id });
+    } else {
+      console.log('ADDING PHOTO!');
+      dispatch({type: ACTIONS.FAV_PHOTO_ADDED, payload: photo.id});
+    }
   }
 
   const onPhotoSelect = (photo) => {
