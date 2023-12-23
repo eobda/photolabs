@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import photos from "mocks/photos";
 
-export const ACTIONS = {
+const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SELECT_PHOTO: 'SELECT_PHOTO',
@@ -53,5 +53,5 @@ export function useApplicationData() {
 
   // onLoadTopic
 
-  return { ACTIONS, state, onPhotoSelect, updateToFavPhotoIds, onClosePhotoDetailsModal };
+  return { state, onPhotoSelect, updateToFavPhotoIds, onClosePhotoDetailsModal };
 };
