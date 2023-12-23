@@ -6,10 +6,10 @@ import '../styles/PhotoFavButton.scss';
 function PhotoFavButton(props) {
 
   const [selected, setSelected] = useState(false);
-  const {likeItem} = props;
+  const {updateToFavPhotoIds} = props;
   const handleClick = () => {
     setSelected(selected ? false : true);
-    likeItem(props.photo);
+    updateToFavPhotoIds(props.photo);
   };
   
   return (
