@@ -30,7 +30,7 @@ const PhotoDetailsModal = (props) => {
       </div>
           
       <div className='photo-details-modal__images'>
-        <PhotoList />
+        <PhotoList photoData={state.photoData} />
       </div>
 
     </div>
