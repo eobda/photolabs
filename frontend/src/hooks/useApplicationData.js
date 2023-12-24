@@ -1,4 +1,5 @@
 import { useReducer, useEffect } from "react";
+import axios from "axios";
 // import photos from "mocks/photos";
 
 //NOTE TO SELF:  USE ARRAY.SOME TO FIND IF PHOTO IS FAV AND SET FAVICON
@@ -44,6 +45,13 @@ export function useApplicationData() {
     activeTopic: null,
     modalOpen: false
   });
+
+  useEffect(() => {
+    axios.get('/api/photos')
+    .then((response) => {
+      console.log(response);
+    })
+  }, []);
 
   const updateToFavPhotoIds = (photo, isFav) => {
     if (isFav) {
