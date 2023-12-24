@@ -23,7 +23,7 @@ function reducer(state, action) {
       return {...state, favPhotos: removedPhotos};
     }
     case 'SELECT_PHOTO': {
-      const photoSearch = photos.find(photo => photo.id === action.payload);
+      const photoSearch = state.photoData.find(photo => photo.id === action.payload);
       return {...state, modalOpen: true, activePhoto: photoSearch};
     }
     case 'SET_PHOTO_DATA': {
