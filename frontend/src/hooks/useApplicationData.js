@@ -1,6 +1,5 @@
 import { useReducer, useEffect } from "react";
 import axios from "axios";
-// import photos from "mocks/photos";
 
 //NOTE TO SELF:  USE ARRAY.SOME TO FIND IF PHOTO IS FAV AND SET FAVICON
 
@@ -31,6 +30,9 @@ function reducer(state, action) {
       return {...state, photoData: action.payload};
     }
     case 'SET_TOPIC_DATA': {
+      return {...state, topicData: action.payload}
+    }
+    case 'SET_ACTIVE_TOPIC': {
       return {...state, activeTopic: action.payload};
     }
     case 'CLOSE_MODAL': {
@@ -50,10 +52,19 @@ export function useApplicationData() {
     modalOpen: false
   });
 
+  // GET photo data
   useEffect(() => {
     axios.get('/api/photos')
     .then((response) => {
       dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
+    })
+  }, []);
+
+  // GET topic data
+  useEffect(() => {
+    axios.get('/api/topics')
+    .then((response) => {
+      dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: response.data });
     })
   }, []);
 
