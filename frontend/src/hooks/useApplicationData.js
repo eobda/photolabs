@@ -8,6 +8,7 @@ const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SELECT_PHOTO: 'SELECT_PHOTO',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   CLOSE_MODAL: 'CLOSE_MODAL'
 };
@@ -25,6 +26,9 @@ function reducer(state, action) {
     case 'SELECT_PHOTO': {
       const photoSearch = photos.find(photo => photo.id === action.payload);
       return {...state, modalOpen: true, activePhoto: photoSearch};
+    }
+    case 'SET_PHOTO_DATA': {
+      return {...state, photoData: action.payload};
     }
     case 'SET_TOPIC_DATA': {
       return {...state, activeTopic: action.payload};
@@ -49,7 +53,7 @@ export function useApplicationData() {
   useEffect(() => {
     axios.get('/api/photos')
     .then((response) => {
-      console.log(response);
+      dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
     })
   }, []);
 
