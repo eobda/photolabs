@@ -11,6 +11,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <TopNavigation state={state} />
       <PhotoList
+        photoData={state.photoData}
         updateToFavPhotoIds={updateToFavPhotoIds}
         onPhotoSelect={onPhotoSelect}
       />
