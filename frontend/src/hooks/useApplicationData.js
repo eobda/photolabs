@@ -1,5 +1,7 @@
-import { useReducer } from "react";
-import photos from "mocks/photos";
+import { useReducer, useEffect } from "react";
+// import photos from "mocks/photos";
+
+//NOTE TO SELF:  USE ARRAY.SOME TO FIND IF PHOTO IS FAV AND SET FAVICON
 
 const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -35,6 +37,8 @@ function reducer(state, action) {
 export function useApplicationData() {
 
   const [state, dispatch] = useReducer(reducer, {
+    photoData: [],
+    topicData:[],
     favPhotos: [],
     activePhoto: null,
     activeTopic: null,
