@@ -8,6 +8,7 @@ const ACTIONS = {
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
   SELECT_PHOTO: 'SELECT_PHOTO',
+  SET_ACTIVE_TOPIC: 'SET_ACTIVE_TOPIC',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   CLOSE_MODAL: 'CLOSE_MODAL'
@@ -33,8 +34,8 @@ function reducer(state, action) {
     case 'SET_TOPIC_DATA': {
       return {...state, topicData: action.payload}
     }
-    case 'GET_PHOTOS_BY_TOPICS': {
-      return {...state, photoData: action.payload};
+    case 'SET_ACTIVE_TOPIC': {
+      return {...state, activeTopic: action.payload};
     }
     case 'CLOSE_MODAL': {
       return {...state, modalOpen: false, activePhoto: null}
@@ -69,6 +70,16 @@ export function useApplicationData() {
     })
   }, []);
 
+   // GET photos by topic
+   useEffect(() => {
+    if (state.activeTopic) {
+    axios.get(`/api/topics/photos/${state.activeTopic}`)
+    .then((response) => {
+      dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
+    })
+    }
+  }, [state.activeTopic]);
+
   const updateToFavPhotoIds = (photo, isFav) => {
     if (isFav) {
       console.log('REMOVING PHOTO!');
@@ -88,14 +99,7 @@ export function useApplicationData() {
   }
 
   const onLoadTopic = (topicId) => {
-    useEffect(() => {
-      if (topicId) {
-      axios.get(`/api/topics/photos/${topicId}`)
-      .then((response) => {
-        dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: response.data });
-      })
-      }
-    }, [state.activeTopic]);
+    dispatch({ type: ACTIONS.SET_ACTIVE_TOPIC, payload: topicId }); 
   }
 
   return { state, onPhotoSelect, updateToFavPhotoIds, onClosePhotoDetailsModal, onLoadTopic };
