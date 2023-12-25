@@ -6,6 +6,7 @@ import axios from "axios";
 const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
   SELECT_PHOTO: 'SELECT_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
@@ -32,8 +33,8 @@ function reducer(state, action) {
     case 'SET_TOPIC_DATA': {
       return {...state, topicData: action.payload}
     }
-    case 'SET_ACTIVE_TOPIC': {
-      return {...state, activeTopic: action.payload};
+    case 'GET_PHOTOS_BY_TOPICS': {
+      return {...state, photoData: action.payload};
     }
     case 'CLOSE_MODAL': {
       return {...state, modalOpen: false, activePhoto: null}
@@ -86,7 +87,16 @@ export function useApplicationData() {
     dispatch({ type: ACTIONS.CLOSE_MODAL });
   }
 
-  // onLoadTopic
+  const onLoadTopic = (topicId) => {
+    useEffect(() => {
+      if (topicId) {
+      axios.get(`/api/topics/photos/${topicId}`)
+      .then((response) => {
+        dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: response.data });
+      })
+      }
+    }, [state.activeTopic]);
+  }
 
-  return { state, onPhotoSelect, updateToFavPhotoIds, onClosePhotoDetailsModal };
+  return { state, onPhotoSelect, updateToFavPhotoIds, onClosePhotoDetailsModal, onLoadTopic };
 };
