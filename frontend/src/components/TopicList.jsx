@@ -4,11 +4,16 @@ import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
 const TopicList = (props) => {
-  const topicData = props.topicData;
+  const { topicData, onLoadTopic } = props;
 
   const renderTopics = topicData.map((topic) => {
     return (
-      <TopicListItem key={topic.id} title={topic.title}/>
+      <TopicListItem
+        key={topic.id}
+        id={topic.id}
+        title={topic.title}
+        onLoadTopic={onLoadTopic}
+      />
     );
   });
 

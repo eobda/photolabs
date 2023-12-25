@@ -11,7 +11,8 @@ const App = () => {
     state,
     onPhotoSelect,
     updateToFavPhotoIds,
-    onClosePhotoDetailsModal
+    onClosePhotoDetailsModal,
+    onLoadTopic
   } = useApplicationData();
 
   return (
@@ -20,6 +21,7 @@ const App = () => {
         state={state}
         onPhotoSelect={onPhotoSelect}
         updateToFavPhotoIds={updateToFavPhotoIds}
+        onLoadTopic={onLoadTopic}
       />
       {state.modalOpen && <PhotoDetailsModal
         state={state}

@@ -5,11 +5,14 @@ import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
-  const { state, onPhotoSelect, updateToFavPhotoIds } = props;
+  const { state, onPhotoSelect, updateToFavPhotoIds, onLoadTopic } = props;
 
   return (
     <div className="home-route">
-      <TopNavigation state={state} />
+      <TopNavigation
+        state={state}
+        onLoadTopic={onLoadTopic}
+      />
       <PhotoList
         photoData={state.photoData}
         updateToFavPhotoIds={updateToFavPhotoIds}
