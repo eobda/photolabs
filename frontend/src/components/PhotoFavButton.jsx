@@ -5,9 +5,9 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
 
-  const { photo, favList, updateToFavPhotoIds, checkIfFav } = props;
+  const { photo, favPhotos, updateToFavPhotoIds, checkIfFav } = props;
 
-  const [selected, setSelected] = useState(checkIfFav(photo.id, favList));
+  const [selected, setSelected] = useState(checkIfFav(photo.id, favPhotos));
   const handleClick = () => {
     updateToFavPhotoIds(photo, selected);
     setSelected(selected ? false : true);

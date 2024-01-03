@@ -8,7 +8,12 @@ const PhotoListItem = (props) => {
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photo={photoData} favList={favPhotos} checkIfFav={checkIfFav} />
+      <PhotoFavButton
+        updateToFavPhotoIds={updateToFavPhotoIds}
+        photo={photoData}
+        favPhotos={favPhotos}
+        checkIfFav={checkIfFav}
+      />
       <img className="photo-list__image" src={photoData.urls.regular} onClick={()=> onPhotoSelect(photoData)} />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={photoData.user.profile} />

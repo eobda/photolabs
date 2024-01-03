@@ -29,6 +29,7 @@ const App = () => {
         state={state}
         onClosePhotoDetailsModal={onClosePhotoDetailsModal}
         updateToFavPhotoIds={updateToFavPhotoIds}
+        checkIfFav={checkIfFav}
       />}
     </div>
   );
