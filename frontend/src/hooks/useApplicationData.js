@@ -103,7 +103,6 @@ export function useApplicationData() {
   }
 
   const checkIfFav = (photoId, favList) => {
-    // if photo in favList return true
     return favList.includes(photoId);
   }
 
