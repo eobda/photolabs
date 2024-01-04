@@ -72,6 +72,13 @@ export function useApplicationData() {
 
    // GET photos by topic
    useEffect(() => {
+    if (state.activeTopic === null) {
+      axios.get('/api/photos')
+      .then((response) => {
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
+      })
+    }
+
     if (state.activeTopic) {
     axios.get(`/api/topics/photos/${state.activeTopic}`)
     .then((response) => {
