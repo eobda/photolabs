@@ -37,7 +37,7 @@ const PhotoDetailsModal = (props) => {
           
       <div className='photo-details-modal__images'>
         <PhotoList
-          photoData={state.photoData}
+          photoData={activePhoto.similar_photos}
           favPhotos={state.favPhotos}
           checkIfFav={checkIfFav}
         />
