@@ -6,7 +6,12 @@ import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
-  const { state, onClosePhotoDetailsModal, updateToFavPhotoIds } = props;
+  const {
+    state,
+    onPhotoSelect,
+    onClosePhotoDetailsModal,
+    updateToFavPhotoIds
+  } = props;
   const activePhoto = state.activePhoto;
   const favPhotos = state.favPhotos;
 
@@ -39,6 +44,7 @@ const PhotoDetailsModal = (props) => {
           photoData={activePhoto.similar_photos}
           favPhotos={state.favPhotos}
           updateToFavPhotoIds={updateToFavPhotoIds}
+          onPhotoSelect={onPhotoSelect}
         />
       </div>
 

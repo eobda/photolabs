@@ -19,7 +19,7 @@ function PhotoFavButton(props) {
   
   useEffect(() => {
     setSelected(checkIfFav(photo.id, favPhotos));
-  }, [favPhotos]);
+  }, [photo, favPhotos]);
 
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>

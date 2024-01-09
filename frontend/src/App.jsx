@@ -25,6 +25,7 @@ const App = () => {
       />
       {state.modalOpen && <PhotoDetailsModal
         state={state}
+        onPhotoSelect={onPhotoSelect}
         onClosePhotoDetailsModal={onClosePhotoDetailsModal}
         updateToFavPhotoIds={updateToFavPhotoIds}
       />}
