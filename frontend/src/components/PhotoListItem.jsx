@@ -18,7 +18,7 @@ const PhotoListItem = (props) => {
         photo={photoData}
         favPhotos={favPhotos}
       />
-      <img className="photo-list__image" src={photoData.urls.regular} onClick={()=> onPhotoSelect(photoData)} />
+      <img className="photo-list__image" src={photoData.urls.regular} onClick={() => onPhotoSelect(photoData)} />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={photoData.user.profile} />
         <p className="photo-list__user-info">{photoData.user.username}<br />
