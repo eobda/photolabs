@@ -2,6 +2,8 @@
 The PhotoLabs project for the Web Development React course programming.
 
 # Photolabs
+!["Main"](/docs/main.png)
+!["Photo Details"](/docs/photo-details.png)
 
 ## Setup
 
