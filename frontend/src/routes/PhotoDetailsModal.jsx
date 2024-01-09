@@ -6,7 +6,7 @@ import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
-  const { state, onClosePhotoDetailsModal, updateToFavPhotoIds, checkIfFav } = props;
+  const { state, onClosePhotoDetailsModal, updateToFavPhotoIds } = props;
   const activePhoto = state.activePhoto;
   const favPhotos = state.favPhotos;
 
@@ -24,7 +24,6 @@ const PhotoDetailsModal = (props) => {
           updateToFavPhotoIds={updateToFavPhotoIds}
           photo={activePhoto}
           favPhotos={favPhotos}
-          checkIfFav={checkIfFav}
         />
         <img className='photo-details-modal__image' src={activePhoto.urls.full} />
 
@@ -39,7 +38,6 @@ const PhotoDetailsModal = (props) => {
         <PhotoList
           photoData={activePhoto.similar_photos}
           favPhotos={state.favPhotos}
-          checkIfFav={checkIfFav}
         />
       </div>
 

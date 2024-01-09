@@ -4,7 +4,12 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
-  const { photoData, favPhotos, updateToFavPhotoIds, onPhotoSelect, checkIfFav } = props;
+  const {
+    photoData,
+    favPhotos,
+    updateToFavPhotoIds,
+    onPhotoSelect
+  } = props;
   
   const renderPhotos = photoData.map((photo) => {
     return (
@@ -14,7 +19,6 @@ const PhotoList = (props) => {
           favPhotos={favPhotos}
           updateToFavPhotoIds={updateToFavPhotoIds}
           onPhotoSelect={onPhotoSelect}
-          checkIfFav={checkIfFav}
         />
       </li>
     );

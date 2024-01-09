@@ -107,9 +107,5 @@ export function useApplicationData() {
     dispatch({ type: ACTIONS.SET_ACTIVE_TOPIC, payload: topicId }); 
   }
 
-  const checkIfFav = (photoId, favList) => {
-    return favList.includes(photoId);
-  }
-
-  return { state, onPhotoSelect, updateToFavPhotoIds, onClosePhotoDetailsModal, onLoadTopic, checkIfFav };
+  return { state, onPhotoSelect, updateToFavPhotoIds, onClosePhotoDetailsModal, onLoadTopic };
 };
