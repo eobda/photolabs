@@ -87,10 +87,8 @@ export function useApplicationData() {
 
   const updateToFavPhotoIds = (photo, isFav) => {
     if (isFav) {
-      console.log('REMOVING PHOTO!');
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photo.id });
     } else {
-      console.log('ADDING PHOTO!');
       dispatch({type: ACTIONS.FAV_PHOTO_ADDED, payload: photo.id});
     }
   }
