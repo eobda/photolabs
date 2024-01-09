@@ -1,8 +1,6 @@
 import { useReducer, useEffect } from "react";
 import axios from "axios";
 
-//NOTE TO SELF:  USE ARRAY.SOME TO FIND IF PHOTO IS FAV AND SET FAVICON
-
 const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
@@ -70,7 +68,7 @@ export function useApplicationData() {
     })
   }, []);
 
-   // GET photos by topic
+   // GET photos by topic (reset to all photos if there is no topic)
    useEffect(() => {
     if (state.activeTopic === null) {
       axios.get('/api/photos')
