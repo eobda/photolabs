@@ -38,6 +38,7 @@ const PhotoDetailsModal = (props) => {
         <PhotoList
           photoData={activePhoto.similar_photos}
           favPhotos={state.favPhotos}
+          updateToFavPhotoIds={updateToFavPhotoIds}
         />
       </div>
 
