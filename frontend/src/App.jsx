@@ -4,7 +4,7 @@ import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import { useApplicationData } from 'hooks/useApplicationData';
-import LikedPhotosModal from 'routes/LikedPhotosModal';
+import FavPhotosModal from 'routes/FavPhotosModal';
 
 const App = () => {
 
@@ -30,7 +30,7 @@ const App = () => {
         onClosePhotoDetailsModal={onClosePhotoDetailsModal}
         updateToFavPhotoIds={updateToFavPhotoIds}
       />}
-      {/* <LikedPhotosModal
+      {/* <FavPhotosModal
         state={state}
         onPhotoSelect={onPhotoSelect}
         onClosePhotoDetailsModal={onClosePhotoDetailsModal}

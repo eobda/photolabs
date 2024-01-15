@@ -4,7 +4,7 @@ import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from "components/PhotoList";
 
-const LikedPhotosModal = (props) => {
+const FavPhotosModal = (props) => {
   const {
     state,
     onPhotoSelect,
@@ -39,4 +39,4 @@ const LikedPhotosModal = (props) => {
   )
 };
 
-export default LikedPhotosModal;
+export default FavPhotosModal;
