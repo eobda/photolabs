@@ -11,6 +11,7 @@ const LikedPhotosModal = (props) => {
     onClosePhotoDetailsModal,
     updateToFavPhotoIds
   } = props;
+  const favPhotos = state.favPhotos;
 
   return (
     <div className="photo-details-modal">
@@ -21,14 +22,18 @@ const LikedPhotosModal = (props) => {
       </button>
     </div>
               
+    {favPhotos.length > 0 && (
     <div className='photo-details-modal__images'>
       <PhotoList
-        photoData={state.favPhotos}
-        favPhotos={state.favPhotos}
+        photoData={favPhotos}
+        favPhotos={favPhotos}
         updateToFavPhotoIds={updateToFavPhotoIds}
         onPhotoSelect={onPhotoSelect}
       />
     </div>
+    )}
+
+    {favPhotos.length === 0 && <p>You have no liked photos. Like a photo to see it here!</p>}
 
   </div>
   )
