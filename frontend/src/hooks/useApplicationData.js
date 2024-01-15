@@ -9,7 +9,7 @@ const ACTIONS = {
   SET_ACTIVE_TOPIC: 'SET_ACTIVE_TOPIC',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
-  CLOSE_MODAL: 'CLOSE_MODAL'
+  CLOSE_DETAILS_MODAL: 'CLOSE_DETAILS_MODAL'
 };
 
 function reducer(state, action) {
@@ -24,7 +24,7 @@ function reducer(state, action) {
     }
     case 'SELECT_PHOTO': {
       const photoSearch = state.photoData.find(photo => photo.id === action.payload);
-      return {...state, modalOpen: true, activePhoto: photoSearch};
+      return {...state, photoDetailsModalOpen: true, activePhoto: photoSearch};
     }
     case 'SET_PHOTO_DATA': {
       return {...state, photoData: action.payload};
@@ -35,8 +35,8 @@ function reducer(state, action) {
     case 'SET_ACTIVE_TOPIC': {
       return {...state, activeTopic: action.payload};
     }
-    case 'CLOSE_MODAL': {
-      return {...state, modalOpen: false, activePhoto: null}
+    case 'CLOSE_DETAILS_MODAL': {
+      return {...state, photoDetailsModalOpen: false, activePhoto: null}
     }
   }
 }
@@ -49,14 +49,13 @@ export function useApplicationData() {
     favPhotos: [],
     activePhoto: null,
     activeTopic: null,
-    modalOpen: false
+    photoDetailsModalOpen: false
   });
 
   // GET photo data
   useEffect(() => {
     axios.get('/api/photos')
     .then((response) => {
-      console.log(response);
       dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
     })
   }, []);
@@ -99,7 +98,7 @@ export function useApplicationData() {
   }
 
   const onClosePhotoDetailsModal = () => {
-    dispatch({ type: ACTIONS.CLOSE_MODAL });
+    dispatch({ type: ACTIONS.CLOSE_DETAILS_MODAL });
   }
 
   const onLoadTopic = (topicId) => {

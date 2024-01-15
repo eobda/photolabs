@@ -4,6 +4,7 @@ import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import { useApplicationData } from 'hooks/useApplicationData';
+import LikedPhotosModal from 'routes/LikedPhotosModal';
 
 const App = () => {
 
@@ -23,12 +24,18 @@ const App = () => {
         updateToFavPhotoIds={updateToFavPhotoIds}
         onLoadTopic={onLoadTopic}
       />
-      {state.modalOpen && <PhotoDetailsModal
+      {state.photoDetailsModalOpen && <PhotoDetailsModal
         state={state}
         onPhotoSelect={onPhotoSelect}
         onClosePhotoDetailsModal={onClosePhotoDetailsModal}
         updateToFavPhotoIds={updateToFavPhotoIds}
       />}
+      {/* <LikedPhotosModal
+        state={state}
+        onPhotoSelect={onPhotoSelect}
+        onClosePhotoDetailsModal={onClosePhotoDetailsModal}
+        updateToFavPhotoIds={updateToFavPhotoIds}
+      /> */}
     </div>
   );
 };
