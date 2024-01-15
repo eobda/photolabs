@@ -1,6 +1,6 @@
 import React from "react";
 
-import '../styles/PhotoDetailsModal.scss';
+import '../styles/FavPhotosModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from "components/PhotoList";
 
@@ -14,16 +14,18 @@ const FavPhotosModal = (props) => {
   const favPhotos = state.favPhotos;
 
   return (
-    <div className="photo-details-modal">
+    <div className="fav-photos-modal">
 
-    <div className='photo-details-modal__top-bar'>
-      <button className="photo-details-modal__close-button">
+    <div className='fav-photos-modal__top-bar'>
+      <button className="fav-photos-modal__close-button">
         <img src={closeSymbol} alt="close symbol" onClick={() => onCloseFavPhotosModal()} />
       </button>
     </div>
+
+    <h2>Your Likes</h2>
               
     {favPhotos.length > 0 && (
-    <div className='photo-details-modal__images'>
+    <div className='fav-photos-modal__images'>
       <PhotoList
         photoData={favPhotos}
         favPhotos={favPhotos}
