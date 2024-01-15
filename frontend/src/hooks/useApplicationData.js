@@ -56,6 +56,7 @@ export function useApplicationData() {
   useEffect(() => {
     axios.get('/api/photos')
     .then((response) => {
+      console.log(response);
       dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
     })
   }, []);
@@ -87,9 +88,9 @@ export function useApplicationData() {
 
   const updateToFavPhotoIds = (photo, isFav) => {
     if (isFav) {
-      dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photo.id });
+      dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photo });
     } else {
-      dispatch({type: ACTIONS.FAV_PHOTO_ADDED, payload: photo.id});
+      dispatch({type: ACTIONS.FAV_PHOTO_ADDED, payload: photo });
     }
   }
 

@@ -7,18 +7,18 @@ function PhotoFavButton(props) {
 
   const { photo, favPhotos, updateToFavPhotoIds } = props;
 
-  const checkIfFav = (photoId, favList) => {
-    return favList.includes(photoId);
+  const checkIfFav = (photo, favList) => {
+    return favList.includes(photo);
   }
 
-  const [selected, setSelected] = useState(checkIfFav(photo.id, favPhotos));
+  const [selected, setSelected] = useState(checkIfFav(photo, favPhotos));
 
   const handleClick = () => {
     updateToFavPhotoIds(photo, selected);
   };
   
   useEffect(() => {
-    setSelected(checkIfFav(photo.id, favPhotos));
+    setSelected(checkIfFav(photo, favPhotos));
   }, [photo, favPhotos]);
 
   return (
