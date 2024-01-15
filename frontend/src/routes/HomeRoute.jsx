@@ -9,7 +9,8 @@ const HomeRoute = (props) => {
     state,
     onPhotoSelect,
     updateToFavPhotoIds,
-    onLoadTopic
+    onLoadTopic,
+    openFavPhotosModal
   } = props;
 
   return (
@@ -17,6 +18,7 @@ const HomeRoute = (props) => {
       <TopNavigation
         state={state}
         onLoadTopic={onLoadTopic}
+        openFavPhotosModal={openFavPhotosModal}
       />
       <PhotoList
         photoData={state.photoData}

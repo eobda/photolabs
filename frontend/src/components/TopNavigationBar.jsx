@@ -5,7 +5,7 @@ import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 
 const TopNavigation = (props) => {
-  const { state, onLoadTopic } = props;
+  const { state, onLoadTopic, openFavPhotosModal } = props;
 
   return (
     <div className="top-nav-bar">
@@ -14,7 +14,10 @@ const TopNavigation = (props) => {
         topicData={state.topicData}
         onLoadTopic={onLoadTopic}
       />
-      <FavBadge isFavPhotoExist={state.favPhotos.length > 0} />
+      <FavBadge
+        isFavPhotoExist={state.favPhotos.length > 0}
+        openFavPhotosModal={openFavPhotosModal}
+      />
     </div>
   )
 }
