@@ -8,7 +8,7 @@ const FavPhotosModal = (props) => {
   const {
     state,
     onPhotoSelect,
-    onClosePhotoDetailsModal,
+    onCloseFavPhotosModal,
     updateToFavPhotoIds
   } = props;
   const favPhotos = state.favPhotos;
@@ -18,7 +18,7 @@ const FavPhotosModal = (props) => {
 
     <div className='photo-details-modal__top-bar'>
       <button className="photo-details-modal__close-button">
-        <img src={closeSymbol} alt="close symbol" onClick={() => onClosePhotoDetailsModal()} />
+        <img src={closeSymbol} alt="close symbol" onClick={() => onCloseFavPhotosModal()} />
       </button>
     </div>
               

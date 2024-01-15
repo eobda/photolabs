@@ -3,8 +3,8 @@ import React from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import { useApplicationData } from 'hooks/useApplicationData';
 import FavPhotosModal from 'routes/FavPhotosModal';
+import { useApplicationData } from 'hooks/useApplicationData';
 
 const App = () => {
 
@@ -13,6 +13,7 @@ const App = () => {
     onPhotoSelect,
     updateToFavPhotoIds,
     onClosePhotoDetailsModal,
+    onCloseFavPhotosModal,
     onLoadTopic
   } = useApplicationData();
 
@@ -30,12 +31,12 @@ const App = () => {
         onClosePhotoDetailsModal={onClosePhotoDetailsModal}
         updateToFavPhotoIds={updateToFavPhotoIds}
       />}
-      {/* <FavPhotosModal
+      {state.favPhotosModalOpen && <FavPhotosModal
         state={state}
         onPhotoSelect={onPhotoSelect}
-        onClosePhotoDetailsModal={onClosePhotoDetailsModal}
+        onCloseFavPhotosModal={onCloseFavPhotosModal}
         updateToFavPhotoIds={updateToFavPhotoIds}
-      /> */}
+      />}
     </div>
   );
 };
