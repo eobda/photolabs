@@ -22,7 +22,7 @@ const FavPhotosModal = (props) => {
       </button>
     </div>
 
-    <h2>Your Likes</h2>
+    <h2 className='fav-photos-modal__header'>Your Likes</h2>
               
     {favPhotos.length > 0 && (
     <div className='fav-photos-modal__images'>
@@ -35,7 +35,9 @@ const FavPhotosModal = (props) => {
     </div>
     )}
 
-    {favPhotos.length === 0 && <p>You have no liked photos. Like a photo to see it here!</p>}
+    {favPhotos.length === 0 && (
+      <p className='fav-photos-modal__message'>You have no liked photos. Like a photo to see it here!</p>
+    )}
 
   </div>
   )
