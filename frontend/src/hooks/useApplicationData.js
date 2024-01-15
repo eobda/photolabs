@@ -9,7 +9,8 @@ const ACTIONS = {
   SET_ACTIVE_TOPIC: 'SET_ACTIVE_TOPIC',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
-  CLOSE_DETAILS_MODAL: 'CLOSE_DETAILS_MODAL'
+  CLOSE_DETAILS_MODAL: 'CLOSE_DETAILS_MODAL',
+  CLOSE_FAVS_MODAL: 'CLOSE_FAVS_MODAL'
 };
 
 function reducer(state, action) {
@@ -38,6 +39,9 @@ function reducer(state, action) {
     case 'CLOSE_DETAILS_MODAL': {
       return {...state, photoDetailsModalOpen: false, activePhoto: null}
     }
+    case 'CLOSE_FAVS_MODAL': {
+      return {...state, favPhotosModalOpen: false}
+    }
   }
 }
 
@@ -49,7 +53,8 @@ export function useApplicationData() {
     favPhotos: [],
     activePhoto: null,
     activeTopic: null,
-    photoDetailsModalOpen: false
+    photoDetailsModalOpen: false,
+    favPhotosModalOpen: false
   });
 
   // GET photo data
@@ -101,9 +106,13 @@ export function useApplicationData() {
     dispatch({ type: ACTIONS.CLOSE_DETAILS_MODAL });
   }
 
+  const onCloseFavPhotosModal = () => {
+    dispatch({ type: ACTIONS.CLOSE_FAVS_MODAL });
+  }
+
   const onLoadTopic = (topicId) => {
     dispatch({ type: ACTIONS.SET_ACTIVE_TOPIC, payload: topicId }); 
   }
 
-  return { state, onPhotoSelect, updateToFavPhotoIds, onClosePhotoDetailsModal, onLoadTopic };
+  return { state, onPhotoSelect, updateToFavPhotoIds, onClosePhotoDetailsModal, onCloseFavPhotosModal, onLoadTopic };
 };
