@@ -3,6 +3,13 @@ import React from "react";
 import '../styles/PhotoDetailsModal.scss';
 
 const LikedPhotosModal = (props) => {
+  const {
+    state,
+    onPhotoSelect,
+    onClosePhotoDetailsModal,
+    updateToFavPhotoIds
+  } = props;
+
   return (
     <div className="photo-details-modal">
 
@@ -14,7 +21,7 @@ const LikedPhotosModal = (props) => {
               
     <div className='photo-details-modal__images'>
       <PhotoList
-        photoData={activePhoto.similar_photos}
+        photoData={state.favPhotos}
         favPhotos={state.favPhotos}
         updateToFavPhotoIds={updateToFavPhotoIds}
         onPhotoSelect={onPhotoSelect}
