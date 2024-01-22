@@ -20,9 +20,7 @@ function reducer(state, action) {
       return {...state, favPhotos: [...state.favPhotos, action.payload]};
     }
     case 'FAV_PHOTO_REMOVED': {
-      const index = state.favPhotos.indexOf(action.payload);
-      const removedPhotos = state.favPhotos.splice(index, 1);
-      return {...state, favPhotos: removedPhotos};
+      return {...state, favPhotos: state.favPhotos.filter((photo) => photo.id !== action.payload.id)};
     }
     case 'SELECT_PHOTO': {
       const photoSearch = state.photoData.find(photo => photo.id === action.payload);
